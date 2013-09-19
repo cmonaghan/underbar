@@ -68,6 +68,13 @@ var _ = { };
   _.reject = function(collection, iterator) {
     // TIP: see if you can re-use _.select() here, without simply
     // copying code in and modifying it
+    var failedTestArr = [];
+    for (var i = 0; i < collection.length; i++) {
+      if (iterator(collection[i]) == false) {
+        failedTestArr.push(collection[i]);
+      };
+    }
+    return failedTestArr;
   };
 
   // Produce a duplicate-free version of the array.
