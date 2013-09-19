@@ -79,6 +79,22 @@ var _ = { };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    //create library of values
+    var uniqueValues = {};
+    //iterate through array, add values to library that do not yet exist
+    for (var i = 0; i < array.length; i++) {
+      if (uniqueValues[array[i]] != true) {
+        uniqueValues[array[i]] = true;
+      }
+    }
+    //create array to hold unique values
+    var uniqueArray = [];
+    //iterate through object to push each unique key to the array
+    for (var key in uniqueValues) {
+      uniqueArray.push(key);
+    }
+    //return the new unique array
+    return uniqueArray;
   };
 
 
