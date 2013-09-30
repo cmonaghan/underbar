@@ -161,7 +161,7 @@ var _ = { };
   _.reduce = function(collection, iterator, initialValue) {
     var previousValue = initialValue || 0;
     for (var i = 0; i < collection.length; i++) {
-      previousValue = iterator(previousValue,collection[i]);
+      previousValue = iterator(previousValue, collection[i]);
     }
     return previousValue;
   };
@@ -181,6 +181,9 @@ var _ = { };
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
+    if(iterator === undefined){
+      iterator = function(i){return i;};
+    }
     // TIP: Try re-using reduce() here.
     for (var i = 0; i < collection.length; i++) {  // This solution works, save for one test
       if (iterator(collection[i]) != true) {
