@@ -185,7 +185,7 @@ var _ = { };
       iterator = function(i){return i;};
     }
     // TIP: Try re-using reduce() here.
-    for (var i = 0; i < collection.length; i++) {  // This solution works, save for one test
+    for (var i = 0; i < collection.length; i++) {
       if (iterator(collection[i]) != true) {
         return false;
       }
@@ -197,6 +197,16 @@ var _ = { };
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
+    if(iterator === undefined){
+      iterator = function(i){return i;};
+    }
+
+    for (var i = 0; i < collection.length; i++) {
+      if (iterator(collection[i]) == true) {
+        return true;
+      }
+    }
+    return false;
   };
 
 
