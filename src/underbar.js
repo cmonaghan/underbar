@@ -194,7 +194,7 @@ var _ = { };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
-  _.some = function(collection, iterator) {
+  _.some = function(collection, iterator) { // passes all but one test
     // TIP: There's a very clever way to re-use every() here.
     if(iterator === undefined){
       iterator = function(i){return i;};
@@ -282,6 +282,7 @@ var _ = { };
   // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
+    return setTimeout(func, wait);
   };
 
 
