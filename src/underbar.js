@@ -138,7 +138,7 @@ var _ = { };
   };
 
   // Calls the method named by methodName on each value in the list.
-  _.invoke = function(list, methodName, args) {
+  _.invoke = function(list, methodName, args) { // ***I don't properly understand how this function works***
     return _.map(list, function(value){
       return value[methodName].call(value, args);
     })
@@ -279,6 +279,16 @@ var _ = { };
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    var alreadyCalled = false;
+    var lastArg; // ***It works, but I don't understand how it knows what to assign to 'lastArg'***
+    var result;
+    return function(){
+      if(!alreadyCalled || (arguments[0] != lastArg)){
+        result = func.apply(this, arguments);
+        alreadyCalled = true;
+      }
+      return result;
+    }
   };
 
   // Delays a function for the given number of milliseconds, and then calls
