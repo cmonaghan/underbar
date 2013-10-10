@@ -159,7 +159,7 @@ var _ = { };
   //
   _.reduce = function(collection, iterator, initialValue) {
     var previousValue = initialValue || 0;
-    for (var i = 0; i < collection.length; i++) {
+    for (var i in collection) {
       previousValue = iterator(previousValue, collection[i]);
     }
     return previousValue;
@@ -169,19 +169,12 @@ var _ = { };
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
-    /*return _.reduce(collection, function(wasFound, item) {
+    return _.reduce(collection, function(wasFound, item) {
       if(wasFound) {
         return true;
       }
       return item === target;
-    }, false);*/
-    var result = false
-    for (var key in collection) {
-      if (collection[key] === target){
-        result = true;
-      }
-    };
-    return result;
+    }, false);
   };
 
 
