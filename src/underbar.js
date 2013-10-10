@@ -185,7 +185,7 @@ var _ = { };
     }
     // TIP: Try re-using reduce() here.
     for (var i = 0; i < collection.length; i++) {
-      if (iterator(collection[i]) != true) {
+      if (Boolean(iterator(collection[i])) !== true) {
         return false;
       }
     }
@@ -201,7 +201,7 @@ var _ = { };
     }
 
     for (var i = 0; i < collection.length; i++) {
-      if (iterator(collection[i]) == true) {
+      if (Boolean(iterator(collection[i])) === true) {
         return true;
       }
     }
