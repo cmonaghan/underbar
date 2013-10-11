@@ -317,6 +317,13 @@ var _ = { };
 
   // Shuffle an array.
   _.shuffle = function(array) {
+    var shuffled = [];
+    var arrayCopy = array.slice();
+    for (var i = array.length - 1; i >= 0; i--) {
+      var pushIndex = Math.round(Math.random() * i);
+      shuffled.push(arrayCopy.splice(pushIndex,1));
+      };
+    return shuffled;
   };
 
 
